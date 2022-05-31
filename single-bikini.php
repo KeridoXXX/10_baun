@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<main id="tops-main">
+<main id="bikinis-main">
 
 	<article class="single">
 		<div class="col-left">
@@ -30,8 +30,8 @@ get_header(); ?>
 		<div class="col-right">
 			<h2></h2>
 			<h3></h3>
-			<p class="top-beskrivelse"></p>
-			<p class="top-pris"></p>
+			<p class="beskrivelse"></p>
+			<p class="pris"></p>
 			<div class="sizes">
 				<button class="small">S</button>
 				<button class="medium">M</button>
@@ -52,25 +52,25 @@ get_header(); ?>
 
 <script>
 
-	let topSingular;
+	let bikiniSingular;
 	 //let id = <?php echo get_the_ID()?>;
 
 	async function getJson() {
 		console.log("id er:", <?php echo get_the_ID()?> )
 		//console.log(id)
-		let jsonData = await fetch("https://lehmannen.dk/kea/10_baun/wp-json/wp/v2/top/<?php echo get_the_ID()?>");
-		topSingular = await jsonData.json();
-		showTopSingular();
+		let jsonData = await fetch("https://lehmannen.dk/kea/10_baun/wp-json/wp/v2/bikini/<?php echo get_the_ID()?>");
+		bikiniSingular = await jsonData.json();
+		showBikiniSingular();
 	}
 
-	function showTopSingular() {
-		console.log(topSingular)
-		document.querySelector(".billede1").src = topSingular.billede1.guid;
-		document.querySelector(".billede2").src = topSingular.billede2.guid;
-		document.querySelector(".billede3").src = topSingular.billede3.guid;
-		document.querySelector("h2").textContent = topSingular.title.rendered;
-		document.querySelector(".top-beskrivelse").textContent = topSingular.title.rendered;
-		document.querySelector(".top-pris").textContent = topSingular.pris;
+	function showBikiniSingular() {
+		console.log(bikiniSingular)
+		document.querySelector(".billede1").src = bikiniSingular.billede1.guid;
+		document.querySelector(".billede2").src = bikiniSingular.billede2.guid;
+		document.querySelector(".billede3").src = bikiniSingular.billede3.guid;
+		document.querySelector("h2").textContent = bikiniSingular.title.rendered;
+		document.querySelector(".beskrivelse").textContent = bikiniSingular.title.rendered;
+		document.querySelector(".pris").textContent = bikiniSingular.pris;
 	}
 
 

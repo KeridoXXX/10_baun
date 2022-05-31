@@ -106,11 +106,23 @@ body {
 
 /* _LOOPVIEW_ */
 
-#main {
+#tops-main {
   padding-top: 4rem;
 }
 
-#main nav {
+#pants-main {
+  padding-top: 4rem;
+}
+
+#bikinis-main {
+  padding-top: 4rem;
+}
+
+#dresses-main {
+  padding-top: 4rem;
+}
+
+#tops-main nav {
   display: flex;
   justify-content: center;
   gap: 2rem;
@@ -124,14 +136,67 @@ grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 gap: 4rem;
 }
 
+#pants-loopview {
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+gap: 4rem;
+}
+
+#bikinis-loopview {
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+gap: 4rem;
+}
+
+#dresses-loopview {
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+gap: 4rem;
+}
+
+
+
 #tops-loopview article {
+  cursor: pointer;
+}
+
+#pants-loopview article {
+  cursor: pointer;
+}
+
+#bikinis-loopview article {
+  cursor: pointer;
+}
+
+#dresses-loopview article {
   cursor: pointer;
 }
 
 
 /* SINGLEVIEW */
 
-#main .single-top {
+#tops-main .single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  place-items: center;
+}
+
+#pants-main .single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  place-items: center;
+}
+
+#bikinis-main .single {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  place-items: center;
+}
+
+#dresses-main .single {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
@@ -235,11 +300,9 @@ gap: 4rem;
 /*
 Den uendelige liste af ting der kan forbedres:
 
-1. logo er ikke centreret i mobilversion (3/10) (fixet)
-2. der er noget powered by wordpress bullshit (6/10) (FIXET)
-3. burger kommer lidt før at griddet lægger sig om (2/10)
-4. griddet på section_1 forside i mobil (3/10)
-5. 
+1. Hvordan laver jeg udskiftelige billeder på singleview (7/10)
+2. Ryd op i CSS (7/10)
+3. 
 
 
 

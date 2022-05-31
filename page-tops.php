@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
-<main id="main">
+<main id="tops-main">
 
 <nav class="filtermenu">
 	<button class="btn1" data-top=10>All tops</button>
