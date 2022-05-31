@@ -102,6 +102,75 @@ body {
 }
 
 
+/* __SHOP_TOPS__ */
+
+/* _LOOPVIEW_ */
+
+#main {
+  padding-top: 4rem;
+}
+
+#main nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem;
+}
+
+
+#tops-loopview {
+  display: grid;
+grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+gap: 4rem;
+}
+
+#tops-loopview article {
+  cursor: pointer;
+}
+
+
+/* SINGLEVIEW */
+
+#main .single-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  place-items: center;
+}
+
+.col-left {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  max-width: 70%;
+  gap: 2rem;
+}
+
+.col-left .billede1 {
+  grid-column: 1/3;
+}
+
+.sizes {
+  display: flex;
+  gap: 10px;
+
+}
+
+.sizes button {
+ border-radius: 30px;
+ padding: 12px;
+}
+
+.sizes .large {
+  padding: 15px;
+}
+
+.sizes .small {
+  padding: 15px;
+}
+
+
+
 /* ___MOBIL___ */
 /* __HEADER__ */
 
