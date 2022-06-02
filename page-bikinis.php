@@ -21,11 +21,11 @@ get_header(); ?>
 
 <main id="bikinis-main">
 
-
+<h2 class="shop-title">Bikinis</h2>
 <section id="bikinis-loopview"></section>
 </main>
 <template class="bikinis-template">
-	<article>
+	<article class="article-loop">
 		<img src="" alt="">
 		<h2></h2>
 		<p class="beskrivelse"></p>
@@ -53,8 +53,8 @@ get_header(); ?>
 			const clone = bikiniTemplate.cloneNode(true).content;
 			clone.querySelector("h2").textContent = bikini.title.rendered;
 			clone.querySelector("img").src = bikini.billede1.guid;
-			clone.querySelector(".beskrivelse").textContent = bikini.title.rendered;
-			clone.querySelector(".pris").textContent = bikini.pris;
+			clone.querySelector(".beskrivelse").textContent = bikini.bikini_navn;
+			clone.querySelector(".pris").textContent = "kr " +  bikini.pris;
 			clone.querySelector("article").addEventListener("click", ()=> {
 				location.href = bikini.link;
 			})

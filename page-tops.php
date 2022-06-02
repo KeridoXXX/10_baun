@@ -21,6 +21,8 @@ get_header(); ?>
 
 <main id="tops-main">
 
+<h2 class="shop-title1">All tops</h2>
+
 <nav class="filtermenu">
 	<button class="btn1" data-top=10>All tops</button>
 	<button class="btn2" data-top=8>Tank top</button>
@@ -31,7 +33,7 @@ get_header(); ?>
 <section id="tops-loopview"></section>
 </main>
 <template>
-	<article>
+	<article class="article-loop">
 		<img src="" alt="">
 		<h2></h2>
 		<p class="top-beskrivelse"></p>
@@ -44,6 +46,7 @@ get_header(); ?>
 	let tops;
 	let categories;
 	let filterTop = 10
+	let title = document.querySelector(".shop-title1")
 
 
 	const dbUrl = "https://lehmannen.dk/kea/10_baun/wp-json/wp/v2/top?per_page=13";
@@ -77,6 +80,7 @@ get_header(); ?>
 	function filterTops() {
 		filterTop = this.dataset.top;
 		showTops();
+		title.textContent = this.textContent;
 	}
 
 
@@ -95,8 +99,8 @@ get_header(); ?>
 
 			clone.querySelector("h2").textContent = top.title.rendered;
 			clone.querySelector("img").src = top.billede1.guid;
-			clone.querySelector(".top-beskrivelse").textContent = top.title.rendered;
-			clone.querySelector(".top-pris").textContent = top.pris;
+			clone.querySelector(".top-beskrivelse").textContent = top.top_navn;
+			clone.querySelector(".top-pris").textContent = "kr " + top.pris;
 
 
 			clone.querySelector("article").addEventListener("click", ()=> {

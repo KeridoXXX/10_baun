@@ -21,11 +21,11 @@ get_header(); ?>
 
 <main id="pants-main">
 
-
+<h2 class="shop-title">Pants</h2>
 <section id="pants-loopview"></section>
 </main>
 <template class="pants-template">
-	<article>
+	<article class="article-loop">
 		<img src="" alt="">
 		<h2></h2>
 		<p class="pant-beskrivelse"></p>
@@ -53,8 +53,8 @@ get_header(); ?>
 			const clone = pantsTemplate.cloneNode(true).content;
 			clone.querySelector("h2").textContent = pant.title.rendered;
 			clone.querySelector("img").src = pant.billede1.guid;
-			clone.querySelector(".pant-beskrivelse").textContent = pant.title.rendered;
-			clone.querySelector(".pant-pris").textContent = pant.pris;
+			clone.querySelector(".pant-beskrivelse").textContent = pant.pant_navn;
+			clone.querySelector(".pant-pris").textContent = "kr " + pant.pris;
 			clone.querySelector("article").addEventListener("click", ()=> {
 				location.href = pant.link;
 			})

@@ -19,49 +19,58 @@ Template: astra
 
 /* ___FARVER___ */
 
+#main {
+  margin-top: -8rem;
+}
+
 body {
-    background-color: #A4C4F5;
+    background-color: #fffefa;
 }
 
 /* Der er en lille dum streg under headeren som ikke ville være blå - det er fixet her */
 .main-header-bar {
-    background-color: #A4C4F5;
-    border-bottom-color: #A4C4F5;
+    background-color: #fffefa;
+    border-bottom-color: #fffefa;
     border-bottom-style: solid;
 }
 .ast-header-break-point .ast-primary-header-bar {
   border-bottom-width: 1px;
-  border-bottom-color: #A4C4F5;
+  border-bottom-color: #fffefa;
   border-bottom-style: solid;
 }
 
 /* Det her er baggrund + en dum hvid streg på secondary header*/
 .ast-above-header-bar {
   border-bottom-width: 1px;
-  background-color: #A4C4F5;
-  border-bottom-color: #A4C4F5;
+  background-color: #fffefa;
+  border-bottom-color: #fffefa;
   border-bottom-style: solid;
 }
 
 .ast-above-header.ast-above-header-bar {
-  background-color: #A4C4F5;
+  background-color: #fffefa;
 }
 
+.sub-menu a:hover {
+  text-decoration: underline;
+}
 
+body a {
+  text-decoration: underline;
+}
 
 
 /* ___DESKTOP___ */
 /* __HEADER__ */
 
-/* logo i headeren bliver lagt i midten */
-.site-header-primary-section-left {
+
+/* .site-header-primary-section-left {
   -js-display: flex;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-/* nav menu bliver lagt i midten */
 .site-header-primary-section-right {
   -js-display: flex;
   display: flex;
@@ -69,14 +78,14 @@ body {
   justify-content: center;
 }
 
-/* ligger hele menuen i en enkelt grid auto-container */
+
 .ast-builder-grid-row {
   display: grid;
   grid-template-columns: auto;
   align-items: center;
   grid-column-gap: 20px;
   overflow-wrap: anywhere;
-}
+} */
 
 /* __FORSIDE__ */
 
@@ -102,24 +111,41 @@ body {
 }
 
 
+
+
+
+
 /* __SHOP_TOPS__ */
 
 /* _LOOPVIEW_ */
 
+.shop-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.shop-title1 {
+  text-align: center;
+}
+
 #tops-main {
   padding-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 #pants-main {
   padding-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 #bikinis-main {
   padding-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 #dresses-main {
   padding-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 #tops-main nav {
@@ -127,30 +153,31 @@ body {
   justify-content: center;
   gap: 2rem;
   padding: 4rem;
+  flex-wrap: wrap;
 }
 
 
 #tops-loopview {
   display: grid;
-grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 gap: 4rem;
 }
 
 #pants-loopview {
   display: grid;
-grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 gap: 4rem;
 }
 
 #bikinis-loopview {
   display: grid;
-grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 gap: 4rem;
 }
 
 #dresses-loopview {
   display: grid;
-grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 gap: 4rem;
 }
 
@@ -172,6 +199,12 @@ gap: 4rem;
   cursor: pointer;
 }
 
+.article-loop p {
+  margin-bottom: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+}
 
 /* SINGLEVIEW */
 
@@ -179,28 +212,28 @@ gap: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  place-items: center;
+justify-items: center;
 }
 
 #pants-main .single {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  place-items: center;
+justify-items: center;
 }
 
 #bikinis-main .single {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  place-items: center;
+justify-items: center;
 }
 
 #dresses-main .single {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  place-items: center;
+justify-items: center;
 }
 
 .col-left {
@@ -218,20 +251,59 @@ gap: 4rem;
 .sizes {
   display: flex;
   gap: 10px;
+  margin-bottom: 1rem;
 
+}
+
+.køb {
+  margin-bottom: 1rem;
+}
+
+.køb a {
+ color: #fffefa;
+ text-decoration: none;
+}
+
+.køb:hover a {
+ color: #1b44a2;
+ text-decoration: underline;
 }
 
 .sizes button {
  border-radius: 30px;
- padding: 12px;
+ padding: 10px 12px 12px 15px;
 }
 
-.sizes .large {
-  padding: 15px;
+.instafeed-singleview {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  flex-direction: row;
 }
 
-.sizes .small {
-  padding: 15px;
+.instafeed-singleview img {
+  transition: transform .4s;
+}
+.instafeed-singleview img:hover {
+  transform:scale(1.2);
+  z-index: 2;
+}
+
+.instafeed-singleview div {
+  width: 50%;
+}
+
+.insta-logo {
+  z-index: 3;
+  width: 65%;
+}
+
+.beskrivelse {
+  margin-top: 10px;
+}
+.top-beskrivelse {
+  margin-top: 10px;
 }
 
 
@@ -290,8 +362,30 @@ gap: 4rem;
     z-index: 1;
 }
 
+#main {
+  margin-top: 0;
 }
 
+
+
+}
+
+
+@media (max-width: 904px) {
+  .instafeed-singleview {
+    display: grid;
+    /*grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));*/
+    place-items: center;
+    margin-top: 1rem;
+  }
+
+  
+
+  .insta-title {
+    grid-column: 1/4;
+  }
+
+}
 
 
 
@@ -302,7 +396,7 @@ Den uendelige liste af ting der kan forbedres:
 
 1. Hvordan laver jeg udskiftelige billeder på singleview (7/10)
 2. Ryd op i CSS (7/10)
-3. 
+3. LAV MOBIL KNAPPER (10/10)
 
 
 
