@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+
 <main id="tops-main">
 
 	<article class="single">
@@ -73,16 +74,16 @@ get_header(); ?>
 <script>
 
 	let topSingular;
-	 //let id = <?php echo get_the_ID()?>;
-
+	
+	// henter JSON fra ET bestemt dataset som vi kalder på via et ID 
 	async function getJson() {
 		console.log("id er:", <?php echo get_the_ID()?> )
-		//console.log(id)
 		let jsonData = await fetch("https://lehmannen.dk/kea/10_baun/wp-json/wp/v2/top/<?php echo get_the_ID()?>");
 		topSingular = await jsonData.json();
 		showTopSingular();
 	}
 
+	// indsætter forskellige ting på siden 
 	function showTopSingular() {
 		console.log(topSingular)
 		document.querySelector(".billede1").src = topSingular.billede1.guid;
@@ -91,17 +92,19 @@ get_header(); ?>
 		document.querySelector("h2").textContent = topSingular.title.rendered;
 		document.querySelector(".top-beskrivelse").textContent = topSingular.top_navn;
 		document.querySelector(".top-pris").textContent = "kr " +  topSingular.pris;
+		// og tilføjer en click event på billederne 
 		document.querySelector(".billede1").addEventListener("click", skiftBillede)
 		document.querySelector(".billede2").addEventListener("click", skiftBillede)
 		document.querySelector(".billede3").addEventListener("click", skiftBillede)
 	}
 
+	// bytter om på billedernes src når man klikker 
 	function skiftBillede() {
 		console.log(this.src)
-		const bigImg = document.querySelector(".billede1")
-		const bigPic = bigImg.src;
-		bigImg.src = this.src;
-		this.src = bigPic;
+		const imgContainer = document.querySelector(".billede1")
+		const bigImg = imgContainer.src;
+		imgContainer.src = this.src;
+		this.src = bigImg;
 	}
 
 	getJson();

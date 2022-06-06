@@ -53,30 +53,24 @@ get_header(); ?>
 	const catUrl ="https://lehmannen.dk/kea/10_baun/wp-json/wp/v2/categories";
 
 	
-
+	// henter alle tops-posts i JSON
 	async function getJson() {
-		let topData = await fetch(dbUrl);
+		let topData = await fetch(dbUrl); // fetcher data fra endpoint
 		let catData = await fetch(catUrl);
-		tops = await topData.json();
+		tops = await topData.json(); 
 		categories = await catData.json();
-		showTops();
+		showTops(); // kalder næste funktion 
 		btnEvent();
 	}
 
-	// function makeBtn() {
-	// 	categories.forEach(cat =>{
-	// 		document.querySelector(".filtermenu").innerHTML += `<button class="filter" data-top="${cat.id}">${cat.name}</button>`
-	// 	})
-	// }
-
-	// FUCK DET HER ^
-
+	// tilføjer en event på knapperne som laver filter
 	function btnEvent() {
 		document.querySelectorAll(".filtermenu button").forEach(elm =>{
 			elm.addEventListener("click", filterTops);
 		})
 	}
 
+	// løber showTops funktionen ud fra et filtreret dataset
 	function filterTops() {
 		filterTop = this.dataset.top;
 		showTops();
@@ -84,31 +78,28 @@ get_header(); ?>
 	}
 
 
+	// sætter indhold ind i en template som vi kloner for hver beklædningsgenstand 
 	function showTops() {
-		let loopview = document.querySelector("#tops-loopview");
-		let template = document.querySelector("template");
-		console.log("dataset id til filtrering:", filterTop)
-		console.log(tops)
-		loopview.innerHTML = "";
+
+		let loopview = document.querySelector("#tops-loopview"); // definere variabler
+		let template = document.querySelector("template"); // definere variabler
+ 
+		console.log("dataset id til filtrering:", filterTop) // logger kategorier
+		console.log(tops) // logger array
+
+		loopview.innerHTML = ""; // tømmer vores loopview evt tidligere appendede kloner 
+
 		tops.forEach(top=> { 
-			if (top.categories.includes(parseInt(filterTop))){
-
-
+			if (top.categories.includes(parseInt(filterTop))){ // if statement der definere filtrering efter en kategori 
 			const clone = template.cloneNode(true).content;
-
-
-			clone.querySelector("h2").textContent = top.title.rendered;
+			clone.querySelector("h2").textContent = top.title.rendered; // indsætter dataen
 			clone.querySelector("img").src = top.billede1.guid;
 			clone.querySelector(".top-beskrivelse").textContent = top.top_navn;
-			clone.querySelector(".top-pris").textContent = "kr " + top.pris;
-
-
+			clone.querySelector(".top-pris").textContent = "kr " + top.pris; 
 			clone.querySelector("article").addEventListener("click", ()=> {
-				location.href = top.link;
+				location.href = top.link; // click event der leder til singleview
 			})
-			
-			
-			loopview.appendChild(clone);
+			loopview.appendChild(clone); // appender (tilføjer) det klonede content til loopview
 				}	
 
 			})
